@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "No bucket name provided"
+        exit 1
+fi
+
+BUCKET_NAME=$1
+FILE_NAME=$2
+
+aws s3api put-object --bucket $BUCKET_NAME --body $FILE_NAME --key $FILE_NAME
+
+
